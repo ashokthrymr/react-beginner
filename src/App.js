@@ -56,7 +56,7 @@ class App extends Component {
     }
     return (
       <div className="App">
-        <input onChange={this.changeHandler.bind(this)} />
+        <input  onChange={this.changeHandler.bind(this)} />
         <p>Length of the value: {this.state.inputLength}</p>
         {/* Task 1 */}
         {/* <UserInput myName={this.eventHandler.bind(this)}></UserInput>
