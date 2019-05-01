@@ -60,6 +60,8 @@ class App extends Component {
   // custom task
   customChange(event) {
     let value = event.target.value;
+    console.log(value.length);
+    
     if (value) {
       if (/^[0-9a-zA-Z]+$/i.test(value)) {
         this.setState({
@@ -68,9 +70,16 @@ class App extends Component {
         })
       } else {
         this.setState({
-          disabled: true
+          disabled: true,
+          inputValue:value
         })
       }
+    }
+    else {
+      this.setState({
+        disabled: true,
+        inputValue: value
+      })
     }
   }
   getRandomColor() {
