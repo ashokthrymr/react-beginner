@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
+import Form from './components/form/form';
 // import UserInput from './components/task1/UserInput';
 // import UserOutput from './components/task1/UserOuput';
 // import List from './components/task1/list'
 // import Validation from './components/task2/validation';
 // import CharComponent from './components/task2/CharComponent'
-import Custom from './components/custom/custom';
+// import Custom from './components/custom/custom';
 class App extends Component {
   constructor(props) {
     super(props);
@@ -23,10 +24,16 @@ class App extends Component {
 
 
     // custom
+    // this.state = {
+    //   inputList: [],
+    //   inputValue: '',
+    //   disabled: true
+    // }
+
+
+    // Form 
     this.state = {
-      inputList: [],
-      inputValue: '',
-      disabled: true
+      formData: '',
     }
   }
 
@@ -58,59 +65,67 @@ class App extends Component {
 
 
   // custom task
-  customChange(event) {
-    let value = event.target.value;
-    console.log(value.length);
-    
-    if (value) {
-      if (/^[0-9a-zA-Z]+$/i.test(value)) {
-        this.setState({
-          disabled: false,
-          inputValue: value
-        })
-      } else {
-        this.setState({
-          disabled: true,
-          inputValue:value
-        })
-      }
-    }
-    else {
-      this.setState({
-        disabled: true,
-        inputValue: value
-      })
-    }
-  }
-  getRandomColor() {
-    let color = "#";
-    let letters="0123456789abcdef"
-    for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color
-  }
-  addevent() {
-    let inputValue = this.state.inputValue;
-    if (inputValue) {
-      let listData = this.state.inputList;
-      let obj={
-        "name":inputValue,
-        "color":this.getRandomColor()
-      }
-      let findElementExit = listData.findIndex(ele => ele.name === inputValue);
-      listData = [...listData, obj];
-      if (findElementExit === -1) {
-        this.setState({
-          inputList: listData,
-          inputValue: ''
-        })
-      } else {
-        alert("This element Already exit");
-      }
-    }
-  }
+  // customChange(event) {
+  //   let value = event.target.value;
+  //   console.log(value.length);
 
+  //   if (value) {
+  //     if (/^[0-9a-zA-Z]+$/i.test(value)) {
+  //       this.setState({
+  //         disabled: false,
+  //         inputValue: value
+  //       })
+  //     } else {
+  //       this.setState({
+  //         disabled: true,
+  //         inputValue:value
+  //       })
+  //     }
+  //   }
+  //   else {
+  //     this.setState({
+  //       disabled: true,
+  //       inputValue: value
+  //     })
+  //   }
+  // }
+  // getRandomColor() {
+  //   let color = "#";
+  //   let letters="0123456789abcdef"
+  //   for (let i = 0; i < 6; i++) {
+  //     color += letters[Math.floor(Math.random() * 16)];
+  //   }
+  //   return color
+  // }
+  // addevent() {
+  //   let inputValue = this.state.inputValue;
+  //   if (inputValue) {
+  //     let listData = this.state.inputList;
+  //     let obj={
+  //       "name":inputValue,
+  //       "color":this.getRandomColor()
+  //     }
+  //     let findElementExit = listData.findIndex(ele => ele.name === inputValue);
+  //     listData = [...listData, obj];
+  //     if (findElementExit === -1) {
+  //       this.setState({
+  //         inputList: listData,
+  //         inputValue: ''
+  //       })
+  //     } else {
+  //       alert("This element Already exit");
+  //     }
+  //   }
+  // }
+
+  // Form
+  formSubmit(event) {
+  let eventData={...event}
+    this.setState({
+      formData:eventData
+    })
+    console.log(this.state);
+  }
 
   render() {
     const style = {
@@ -141,8 +156,15 @@ class App extends Component {
 
         {/* {custom task} */}
 
-        <input type="text" onChange={this.customChange.bind(this)} value={this.state.inputValue} /><button disabled={this.state.disabled} onClick={this.addevent.bind(this)}>Add</button>
-        <Custom parentData={this.state} />
+        {/* <input type="text" onChange={this.customChange.bind(this)} value={this.state.inputValue} /><button disabled={this.state.disabled} onClick={this.addevent.bind(this)}>Add</button>
+        <Custom parentData={this.state} /> */}
+
+
+
+        {/* Form data */}
+        <h4>Forms</h4>
+        <Form submit={this.formSubmit.bind(this)}></Form>
+        <p>{JSON.stringify(this.state.formData)}</p>
       </div>
     );
   }
