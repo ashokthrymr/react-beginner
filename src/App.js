@@ -7,6 +7,7 @@ import Form from './components/form/form';
 // import Validation from './components/task2/validation';
 // import CharComponent from './components/task2/CharComponent'
 // import Custom from './components/custom/custom';
+import Crud from './components/CRUD/Crud'
 class App extends Component {
   constructor(props) {
     super(props);
@@ -32,8 +33,14 @@ class App extends Component {
 
 
     // Form 
+    // this.state = {
+    //   formData: '',
+    // }
+
+
+    //CRUD operations
     this.state = {
-      formData: '',
+      list: []
     }
   }
 
@@ -119,13 +126,13 @@ class App extends Component {
   // }
 
   // Form
-  formSubmit(event) {
-  let eventData={...event}
-    this.setState({
-      formData:eventData
-    })
-    console.log(this.state);
-  }
+  // formSubmit(event) {
+  // let eventData={...event}
+  //   this.setState({
+  //     formData:eventData
+  //   })
+  //   console.log(this.state);
+  // }
 
   render() {
     const style = {
@@ -162,9 +169,13 @@ class App extends Component {
 
 
         {/* Form data */}
-        <h4>Forms</h4>
+        {/* <h4>Forms</h4>
         <Form submit={this.formSubmit.bind(this)}></Form>
-        <p>{JSON.stringify(this.state.formData)}</p>
+        <p>{JSON.stringify(this.state.formData)}</p> */}
+
+
+        <h3> CRUD Operation</h3>
+        <Crud></Crud>
       </div>
     );
   }
