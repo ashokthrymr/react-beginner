@@ -7,7 +7,8 @@ import Form from './components/form/form';
 // import Validation from './components/task2/validation';
 // import CharComponent from './components/task2/CharComponent'
 // import Custom from './components/custom/custom';
-import Crud from './components/CRUD/Crud'
+import Crud from './components/CRUD/Crud';
+import Getservice from './components/servicce/getservice'
 class App extends Component {
   constructor(props) {
     super(props);
@@ -39,9 +40,9 @@ class App extends Component {
 
 
     //CRUD operations
-    this.state = {
-      list: []
-    }
+    // this.state = {
+    //   list: []
+    // }
   }
 
   // Task 1
@@ -173,9 +174,13 @@ class App extends Component {
         <Form submit={this.formSubmit.bind(this)}></Form>
         <p>{JSON.stringify(this.state.formData)}</p> */}
 
-
+        {/*  curd operations 
         <h3> CRUD Operation</h3>
-        <Crud></Crud>
+        <Crud></Crud> */}
+
+
+        <h4>Service</h4>
+        <Getservice></Getservice>
       </div>
     );
   }
