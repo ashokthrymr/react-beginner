@@ -9,7 +9,8 @@ import Form from './components/form/form';
 // import Custom from './components/custom/custom';
 import Crud from './components/CRUD/Crud';
 import Getservice from './components/servicce/getservice';
-import PostService from './components/servicce/postService'
+import PostService from './components/servicce/postService';
+import Hook from './components/Hooks/hook';
 class App extends Component {
   constructor(props) {
     super(props);
@@ -183,7 +184,9 @@ class App extends Component {
         {/* <h4>Service</h4>
         <Getservice></Getservice> */}
 
-        <PostService></PostService>
+        {/* <PostService></PostService> */}
+
+        <Hook></Hook>
       </div>
     );
   }
