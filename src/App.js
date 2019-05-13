@@ -8,7 +8,8 @@ import Form from './components/form/form';
 // import CharComponent from './components/task2/CharComponent'
 // import Custom from './components/custom/custom';
 import Crud from './components/CRUD/Crud';
-import Getservice from './components/servicce/getservice'
+import Getservice from './components/servicce/getservice';
+import PostService from './components/servicce/postService'
 class App extends Component {
   constructor(props) {
     super(props);
@@ -179,8 +180,10 @@ class App extends Component {
         <Crud></Crud> */}
 
 
-        <h4>Service</h4>
-        <Getservice></Getservice>
+        {/* <h4>Service</h4>
+        <Getservice></Getservice> */}
+
+        <PostService></PostService>
       </div>
     );
   }
