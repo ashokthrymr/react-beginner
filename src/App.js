@@ -73,7 +73,6 @@ class App extends Component {
   // }
 
 
-
   // custom task
   // customChange(event) {
   //   let value = event.target.value;
